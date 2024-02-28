@@ -1,0 +1,35 @@
+colvarsTrajFrequency 10000
+
+
+
+
+colvar {
+    name rmsdA
+
+#   outputTotalForce on
+    #  outputAppliedForce on
+#   width 1.0 
+
+    rmsd {
+        atoms {
+            atomNumbers { 2016 2024 2025 2026 2028 2036 2037 2038 2040 2051 2052 2053 2055 2061 2062 2063 2065 2080 2081 2082 2084 2095 2096 2097 2099 2117 2118 2119 2121 2137 2138 2139 2141 2149 2150 2151 2153 2171 2172 2173 2175 2181 2182 2183 2185 2200 2201 2202 2204 2222 2223 2224 2226 }
+        }
+        refpositionsfile rmsd-us.pdb
+        refPositionsCol  B
+    }
+} 
+
+
+
+################################################
+# Put harmonic restraints on the colvars
+################################################
+
+harmonic {
+   colvars        rmsdA 
+   forceConstant   50.0
+#put below the value of target RMSD
+   centers         0.25
+}
+
+
